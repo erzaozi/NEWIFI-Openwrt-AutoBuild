@@ -132,6 +132,8 @@ EOF
 			Copy ${CustomFiles}/${TARGET_PROFILE}_system ${BASE_FILES}/etc/config system
 		;;
 		esac
+		git clone https://github.com/SunBK201/UA3F.git package/UA3F
+    	git clone https://github.com/CHN-beta/rkp-ipid.git package/rkp-ipid
 	;;
 	immortalwrt/immortalwrt*)
 		case "${TARGET_PROFILE}" in
