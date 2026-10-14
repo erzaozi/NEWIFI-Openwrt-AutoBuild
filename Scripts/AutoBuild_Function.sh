@@ -22,9 +22,10 @@ Firmware_Diy_Start() {
 	fi
 	case "${OP_AUTHOR}/${OP_REPO}" in
 	coolsnowwolf/lede)
-		Version_File=package/lean/default-settings/files/zzz-default-settings
-		zzz_Default_Version="$(egrep -o "R[0-9]+\.[0-9]+\.[0-9]+" ${Version_File} | head -1)"
-		OP_VERSION="${zzz_Default_Version}-${Compile_Date}"
+    	Version_File=package/lean/default-settings/files/zzz-default-settings
+    	zzz_Default_Version="$(egrep -o "R[0-9]+\.[0-9]+\.[0-9]+" ${Version_File} | head -1)"
+    	[[ -z ${zzz_Default_Version} ]] && zzz_Default_Version="R$(date +%y.%m).1"
+    	OP_VERSION="${zzz_Default_Version}-${Compile_Date}"
 	;;
 	immortalwrt/immortalwrt | padavanonly/immortalwrtARM | hanwckf/immortalwrt-mt798x)
 		Version_File=package/base-files/files/etc/openwrt_release
